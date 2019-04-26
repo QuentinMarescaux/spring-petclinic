@@ -25,7 +25,8 @@ before_install:
   - echo $TRAVIS_COMMIT_MESSAGE
 
 
-install: true
+# cela permet de sauter l'installation
+# install: true
 
 
 before-script:
