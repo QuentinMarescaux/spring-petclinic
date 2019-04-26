@@ -7,6 +7,14 @@ jdk:
   - oraclejdk8
 #  - openjdk11
 
+
+
+addons:
+  sonarcloud:
+    organization: "quentinmarescaux-github" # the key of the org you chose at step #3
+    token:
+      secure: db3c2b87c6122e59e2572e0fc1a43672effec132 # encrypted value of your token
+
 before_install:
   - echo "before_install"
   - echo $TRAVIS_COMMIT
@@ -24,7 +32,12 @@ before-script:
   - echo "before_script"
 
 
+      
 script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner
+  #- docker build -t petclic:$TRAVIS_BUILD_NUMBER
+  #- curl https://cli-assets.heroku.com/install.sh | sh
 
 
 
