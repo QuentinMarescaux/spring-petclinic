@@ -38,7 +38,6 @@ script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
   - docker build -t petclic:$TRAVIS_BUILD_NUMBER .
-  #- curl https://cli-assets.heroku.com/install.sh | sh
 
 
 
