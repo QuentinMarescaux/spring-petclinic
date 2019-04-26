@@ -1,7 +1,7 @@
 language: java
 
-#services:
-#  - docker
+services:
+  - docker
   
 jdk:
   - oraclejdk8
@@ -36,7 +36,7 @@ before-script:
 script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
-  #- docker build -t petclic:$TRAVIS_BUILD_NUMBER
+  - docker build -t petclic:$TRAVIS_BUILD_NUMBER
   #- curl https://cli-assets.heroku.com/install.sh | sh
 
 
