@@ -13,7 +13,7 @@ addons:
   sonarcloud:
     organization: "quentinmarescaux-github" # the key of the org you chose at step #3
     token:
-      secure: db3c2b87c6122e59e2572e0fc1a43672effec132 # encrypted value of your token
+      secure: $SONAR # encrypted value of your token
 
 before_install:
   - echo "before_install"
