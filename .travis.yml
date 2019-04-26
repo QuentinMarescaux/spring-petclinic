@@ -34,10 +34,28 @@ before-script:
 
 
       
-script:
+#script:
   # other script steps might be done before running the actual analysis
-  - sonar-scanner
-  - docker build -t petclic:$TRAVIS_BUILD_NUMBER .
+ # - sonar-scanner
+ # - docker build -t petclic:$TRAVIS_BUILD_NUMBER .
+
+
+stages:
+  - test
+  - quality
+  - deploy
+jobs:
+  include:
+    - stage: quality
+      script:
+        - sonar-scanner
+    - stage: deploy
+      script:
+        - curl https://cli-assets.heroku.com/install.sh | sh
+        - heroku --version
+        - heroku container:login
+        - heroku container:push web --app quentin-igci-petclinic
+        - heroku container:release web --app quentin-igci-petclinic
 
 
 
